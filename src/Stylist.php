@@ -60,6 +60,24 @@
             $GLOBALS['DB']->query("DELETE FROM stylists;");
         }
 
+        function delete()
+        {
+            $GLOBALS['DB']->query("DELETE FROM stylists WHERE id = {$this->id};");
+        }
+
+        static function find($search_id)
+        {
+            $returned_query = $GLOBALS['DB']->query("SELECT * FROM stylists WHERE id = {$search_id};");
+            $found_stylist = null;
+            foreach ($returned_query as $stylist)
+            {
+                $new_stylist = new Stylist($stylist['stylist_name'],$stylist['specialty'],$stylist['id']);
+                $found_stylist = $new_stylist;
+            }
+            return $found_stylist;
+        }
+
+
     }
 
 ?>
