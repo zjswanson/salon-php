@@ -64,6 +64,23 @@
             $GLOBALS['DB']->query("DELETE FROM clients;");
         }
 
+        function delete()
+        {
+            $GLOBALS['DB']->query("DELETE FROM clients WHERE id = {$this->id};");
+        }
+
+        static function find($search_id)
+        {
+            $returned_query = $GLOBALS['DB']->query("SELECT * FROM clients WHERE id = {$search_id};");
+            $found_client = null;
+            foreach ($returned_query as $client)
+            {
+                $new_client = new Client($client['client_name'],$client['next_appointment'], $client['stylist_id'],$client['id']);
+                $found_client = $new_client;
+            }
+            return $found_client;
+        }
+
 
     }
 

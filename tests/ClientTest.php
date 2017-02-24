@@ -132,7 +132,7 @@ class ClientTest extends PHPUnit_Framework_TestCase
         // Act
         $result = Client::getAll();
         // Assert
-        $this->assertEquals($result, $test_client2);
+        $this->assertEquals($result, array($test_client2));
     }
 
 
