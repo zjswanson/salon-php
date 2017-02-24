@@ -1,0 +1,47 @@
+{% extends "home_template.html.twig" %}
+
+{% block controls %}
+    <h2>Manager options:</h2>
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3>Add a client for {{stylist.getStylistName}}:</h3>
+        </div>
+        <div class="panel-body">
+            <form action="/clients/{{stylist.getId}}" method="post">
+                <div class="form-group">
+                    <label for="client_name">New Client Name</label>
+                    <input type="text" name="client_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="next_appointment">Next Appointment</label>
+                    <input type="datetime-local" name="appointment" required>
+                </div>
+                <button type="submit" name="button">Create New Client</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+{% block list %}
+<div class="row">
+    <h2>Client List for {{stylist.getStylistName }}</h2>
+{% if clients is not empty %}
+    {% for client in clients %}
+        <div class="col-md-4 ">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h4>{{client.getClientName}}</h4>
+                </div>
+                <div class="panel-body">
+                    <h4>Next Appointment: </h4>
+                    <h4>{{client.getNextAppointment | date("D, M y g:h")}}</h4>
+                    <form method="get">
+                        <button class="btn btn-warning" type="submit" name="edit" formaction="/edit_client/{{client.getId}}">Edit Client</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endif %}
+</div>
+{% endblock %}

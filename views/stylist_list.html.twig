@@ -1,4 +1,4 @@
-{% extends "list_view.html.twig" %}
+{% extends "home_template.html.twig" %}
 
 {% block controls %}
     <h2>Manager options:</h2>
@@ -35,10 +35,10 @@
                 <div class="panel-body">
                     <h4>Specialty: {{stylist.getSpecialty}}</h4>
                     <form method="get">
-                        <button class="btn btn-info" type="submit" name="client" formaction="/client">View Client List</button>
-                        <button class="btn btn-warning" type="submit" name="edit" formaction="/edit_stylist">Edit Stylist</button>
+                        <button class="btn btn-info" type="submit" name="client" formaction="/clients/{{stylist.getId}}">View Client List</button>
+                        <button class="btn btn-warning" type="submit" name="edit" formaction="/edit_stylist/{{stylist.getId}}">Edit Stylist</button>
                     </form>
-                </div>                
+                </div>
             </div>
         </div>
     {% endfor %}
