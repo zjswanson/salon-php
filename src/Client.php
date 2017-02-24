@@ -81,6 +81,12 @@
             return $found_client;
         }
 
+        function update($property,$value)
+        {
+            $GLOBALS['DB']->exec("UPDATE clients SET {$property}='{$value}' where id = {$this->getId()};");
+            $this->$property = $value;
+        }
+
 
     }
 

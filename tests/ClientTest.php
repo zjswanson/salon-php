@@ -154,7 +154,7 @@ class ClientTest extends PHPUnit_Framework_TestCase
         // Act
         $result_client= Client::getAll();
         $result = array($result_client[0]->getClientName(), $result_client[0]->getNextAppointment(),$result_client[0]->getStylistId(), $result_client[0]->getId());
-        $expected_result = array($client_name2,$specialty2,$stylist_id,$test_client->getId());
+        $expected_result = array($client_name2,$next_appointment2,$stylist_id,$test_client->getId());
         // Assert
         $this->assertEquals($result, $expected_result);
     }
