@@ -13,6 +13,8 @@
             $this->id = $id;
         }
 
+        // Hi Tyler, or whomever reivews this.  In the context of working with a database, isn't it somewhat dangerous to have generic setters for our properties?  Wouldn't it be better to use the update method to change both the object in local memory and the database entry at the same time?  It seems like having a setter that just changes the local object would be a good way to get my database out of sync with my local operations.  If a specific need came up to set the property value locally without saving, wouldn't it be better to handle that with a method for the specific case?  Thanks!
+
         function getStylistName()
         {
             return $this->stylist_name;
