@@ -40,7 +40,7 @@ Testing method: The phrase was chosen because the search string occurs many time
 
 ## Known Bugs
 
- _No known bugs.  Modest functionality at best, but it isn't buggy._
+ _No current method to escape data being sent to database, so inputs containing special characters (i.e. "Zach's") may cause failure to write to database.  Also, no protection against SQL injection, so someone may steal my imaginary hair salon data :)_
 
 ## Support and contact details
 
