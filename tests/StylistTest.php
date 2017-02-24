@@ -145,7 +145,7 @@ class StylistTest extends PHPUnit_Framework_TestCase
         $specialty2 = "Wavy Mess";
         $test_stylist2 = new Stylist ($stylist_name2,$specialty2);
         $test_stylist2->save();
-        $stylist_id2 = $test_stylist->getId();
+        $stylist_id2 = $test_stylist2->getId();
         $client_name = 'Mr. Dude';
         $next_appointment = "2017-02-24 15:00:00";
         $test_client = new Client ($client_name,$next_appointment,$stylist_id);
@@ -157,11 +157,11 @@ class StylistTest extends PHPUnit_Framework_TestCase
         $client_name3 = 'Monsieur Fancee';
         $next_appointment3 = "2017-02-24 19:00:00";
         $test_client3 = new Client ($client_name3,$next_appointment3,$stylist_id);
-        $test_client2->save();
+        $test_client3->save();
         // Act
         $result = $test_stylist->findClients();
         // Assert
-        $this->assertEquals($result, [$test_client1,$test_client3]);
+        $this->assertEquals($result, [$test_client,$test_client3]);
     }
 
 

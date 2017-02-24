@@ -83,6 +83,18 @@
             $this->$property = $value;
         }
 
+        function findClients()
+        {
+            $returned_query = $GLOBALS['DB']->query("SELECT * FROM clients WHERE stylist_id = {$this->id};");
+            $clients = array();
+            foreach ($returned_query as $client)
+            {
+                $new_client = new Client($client['client_name'],$client['next_appointment'], $client['stylist_id'],$client['id']);
+                array_push($clients,$new_client);
+            }
+            return $clients;
+        }
+
 
     }
 
