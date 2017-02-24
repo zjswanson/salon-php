@@ -133,6 +133,37 @@ class StylistTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($result, $expected_result);
     }
 
+    function test_getClients()
+    {
+        // Arrange
+        $stylist_name = 'Eduardo';
+        $specialty = "pompadour";
+        $test_stylist = new Stylist ($stylist_name,$specialty);
+        $test_stylist->save();
+        $stylist_id = $test_stylist->getId();
+        $stylist_name2 = 'Phillipe';
+        $specialty2 = "Wavy Mess";
+        $test_stylist2 = new Stylist ($stylist_name2,$specialty2);
+        $test_stylist2->save();
+        $stylist_id2 = $test_stylist->getId();
+        $client_name = 'Mr. Dude';
+        $next_appointment = "2017-02-24 15:00:00";
+        $test_client = new Client ($client_name,$next_appointment,$stylist_id);
+        $test_client->save();
+        $client_name2 = 'El Duderino';
+        $next_appointment2 = "2017-02-24 17:00:00";
+        $test_client2 = new Client ($client_name2,$next_appointment2,$stylist_id2);
+        $test_client2->save();
+        $client_name3 = 'Monsieur Fancee';
+        $next_appointment3 = "2017-02-24 19:00:00";
+        $test_client3 = new Client ($client_name3,$next_appointment3,$stylist_id);
+        $test_client2->save();
+        // Act
+        $result = $test_stylist->findClients();
+        // Assert
+        $this->assertEquals($result, [$test_client1,$test_client3]);
+    }
+
 
 
 }
