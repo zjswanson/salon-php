@@ -41,7 +41,28 @@
         }
         // Note: Set ID methods intentionally excluded to avoid overrwriting primary key from database.
 
+        function save()
+        {
+            $GLOBALS['DB']->exec("INSERT INTO clients (client_name,next_appointment,stylist_id) VALUES ('{$this->client_name}','{$this->next_appointment}',{$this->stylist_id});");
+            $this->id = $GLOBALS['DB']->lastInsertID();
+        }
 
+        static function getAll()
+        {
+            $returned_query = $GLOBALS['DB']->query("SELECT * FROM clients;");
+            $clients = array();
+            foreach ($returned_query as $client)
+            {
+                $new_client = new Client($client['client_name'],$client['next_appointment'], $client['stylist_id'],$client['id']);
+                array_push($clients,$new_client);
+            }
+            return $clients;
+        }
+
+        static function deleteAll()
+        {
+            $GLOBALS['DB']->query("DELETE FROM clients;");
+        }
 
 
     }

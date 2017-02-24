@@ -65,7 +65,7 @@ class ClientTest extends PHPUnit_Framework_TestCase
         // Act
         $result = Client::getAll();
         // Assert
-        $this->assertEquals($result[0], $test_stylist);
+        $this->assertEquals($result[0], $test_client);
     }
 
     function test_getAll()
