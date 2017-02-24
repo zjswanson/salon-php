@@ -11,10 +11,10 @@ $password = 'root';
 $DB = new PDO($server, $username, $password);
 class CuisineTest extends PHPUnit_Framework_TestCase
 {
-    protected function tearDown()
-    {
-        Stylist::deleteAll();
-    }
+    // protected function tearDown()
+    // {
+    //     Stylist::deleteAll();
+    // }
     function test_getters()
     {
         // Arrange
@@ -23,7 +23,7 @@ class CuisineTest extends PHPUnit_Framework_TestCase
         $specialty = "pompadour";
         $test_stylist = new Stylist ($stylist_name,$specialty,$id);
         // Act
-        $result = array($test_stylist->getName(), $test_stylist->getSpecialty(), $test_stylist->getId());
+        $result = array($test_stylist->getStylistName(), $test_stylist->getSpecialty(), $test_stylist->getId());
         $expected_result = array($stylist_name,$specialty,$id);
         // Assert
         $this->assertEquals($result, $expected_result);
@@ -37,10 +37,10 @@ class CuisineTest extends PHPUnit_Framework_TestCase
         $test_stylist = new Stylist ($stylist_name,$specialty,$id);
         $stylist_name2 = 'Phillipe';
         $specialty2 = "Wavy Mess";
-        $test_stylist->setName($stylist_name2);
-        $test_stylist->setName($specialty2);
+        $test_stylist->setStylistName($stylist_name2);
+        $test_stylist->setSpecialty($specialty2);
         // Act
-        $result = array($test_stylist->getName(), $test_stylist->getSpecialty());
+        $result = array($test_stylist->getStylistName(), $test_stylist->getSpecialty());
         $expected_result = array($stylist_name2,$specialty2);
         // Assert
         $this->assertEquals($result, $expected_result);
