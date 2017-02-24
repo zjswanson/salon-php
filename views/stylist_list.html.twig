@@ -1,18 +1,25 @@
 {% extends "list_view.html.twig" %}
 
 {% block controls %}
-    <h3>Add a Stylist:</h3>
-    <form action="/" method="post">
-        <div class="form-group">
-            <label for="stylist_name">New Stylist Name</label>
-            <input type="text" name="stylist_name" required>
+    <h2>Manager options:</h2>
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3>Add a Stylist:</h3>
         </div>
-        <div class="form-group">
-            <label for="specialty">New Stylist Specialty</label>
-            <input type="text" name="specialty" required>
+        <div class="panel-body">
+            <form action="/" method="post">
+                <div class="form-group">
+                    <label for="stylist_name">New Stylist Name</label>
+                    <input type="text" name="stylist_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="specialty">New Stylist Specialty</label>
+                    <input type="text" name="specialty" required>
+                </div>
+                <button type="submit" name="button">Create New Stylist</button>
+            </form>
         </div>
-        <button type="submit" name="button">Create New Stylist</button>
-    </form>
+    </div>
 {% endblock %}
 
 {% block list %}
@@ -20,16 +27,18 @@
     <h2>Stylists</h2>
 {% if stylists is not empty %}
     {% for stylist in stylists %}
-        <div class="col-md-4 panel panel-info">
-            <div class="panel-heading">
-                <h4>{{stylist.getStylistName}}</h4>
-            </div>
-            <div class="panel-body">
-                <h4>Specialty: {{stylist.getSpecialty}}</h4>
-                <form method="get">
-                    <button class="btn btn-info" type="submit" name="client" formaction="/client">View Client List</button>
-                    <button type="submit" name="edit" formaction="/edit_stylist">Edit Stylist</button>
-                </form>
+        <div class="col-md-4 ">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h4>{{stylist.getStylistName}}</h4>
+                </div>
+                <div class="panel-body">
+                    <h4>Specialty: {{stylist.getSpecialty}}</h4>
+                    <form method="get">
+                        <button class="btn btn-info" type="submit" name="client" formaction="/client">View Client List</button>
+                        <button class="btn btn-warning" type="submit" name="edit" formaction="/edit_stylist">Edit Stylist</button>
+                    </form>
+                </div>                
             </div>
         </div>
     {% endfor %}

@@ -25,6 +25,12 @@
         return $app['twig']->render('stylist_list.html.twig', array('stylists' => Stylist::getAll()));
     });
 
+    $app->post("/", function() use ($app) {
+        $new_stylist = new Stylist($_POST['stylist_name'], $_POST['specialty']);
+        $new_stylist->save();
+        return $app['twig']->render('stylist_list.html.twig', array('stylists' => Stylist::getAll()));
+    });
+
 
 
     return $app;
