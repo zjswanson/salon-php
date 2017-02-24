@@ -60,6 +60,16 @@
         return $app['twig']->render('stylist_edit.html.twig', array('stylist' => Stylist::find($stylist_id)));
     });
 
+    $app->patch("/stylist_edit/{stylist_id}", function($stylist_id) use ($app) {
+        $stylist = Stylist::find($stylist_id);
+        if (!empty($_POST['stylist_name']))
+        {$stylist->update('stylist_name',$_POST['stylist_name']);}
+        $stylist = Stylist::find($stylist_id);
+        if (!empty($_POST['specialty']))
+        {$stylist->update('specialty',$_POST['specialty']);}
+        return $app['twig']->render('stylist_edit.html.twig', array('stylist' => Stylist::find($stylist_id)));
+    });
+
 
 
     return $app;
