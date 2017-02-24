@@ -90,6 +90,51 @@ class ClientTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($result, [$test_client,$test_client2]);
     }
 
+    function test_find()
+    {
+        // Arrange
+        $stylist_name = 'Eduardo';
+        $specialty = "pompadour";
+        $test_stylist = new Stylist ($stylist_name,$specialty);
+        $test_stylist->save();
+        $stylist_id = $test_stylist->getId();
+        $client_name = 'Mr. Dude';
+        $next_appointment = "2017-02-24 15:00:00";
+        $test_client = new Client ($client_name,$next_appointment,$stylist_id);
+        $test_client->save();
+        $client_name2 = 'El Duderino';
+        $next_appointment2 = "2017-02-24 17:00:00";
+        $test_client2 = new Client ($client_name2,$next_appointment2,$stylist_id);
+        $test_client2->save();
+        // Act
+        $result = Client::find($test_client2->getId());
+        // Assert
+        $this->assertEquals($result, $test_client2);
+    }
+
+    function test_delete()
+    {
+        // Arrange
+        $stylist_name = 'Eduardo';
+        $specialty = "pompadour";
+        $test_stylist = new Stylist ($stylist_name,$specialty);
+        $test_stylist->save();
+        $stylist_id = $test_stylist->getId();
+        $client_name = 'Mr. Dude';
+        $next_appointment = "2017-02-24 15:00:00";
+        $test_client = new Client ($client_name,$next_appointment,$stylist_id);
+        $test_client->save();
+        $client_name2 = 'El Duderino';
+        $next_appointment2 = "2017-02-24 17:00:00";
+        $test_client2 = new Client ($client_name2,$next_appointment2,$stylist_id);
+        $test_client2->save();
+        $test_client->delete();
+        // Act
+        $result = Client::getAll();
+        // Assert
+        $this->assertEquals($result, $test_client2);
+    }
+
 
 
 
