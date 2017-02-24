@@ -9,7 +9,7 @@ $server = 'mysql:host=localhost:8889;dbname=hair_salon_test';
 $username = 'root';
 $password = 'root';
 $DB = new PDO($server, $username, $password);
-class CuisineTest extends PHPUnit_Framework_TestCase
+class StylistTest extends PHPUnit_Framework_TestCase
 {
     protected function tearDown()
     {
@@ -56,7 +56,7 @@ class CuisineTest extends PHPUnit_Framework_TestCase
         // Act
         $result = Stylist::getAll();
         // Assert
-        $this->assertEquals($result, $test_stylist);
+        $this->assertEquals($result[0], $test_stylist);
     }
 
     function test_getAll()

@@ -35,7 +35,28 @@
         }
         // Note: Set ID method intentionally excluded to avoid overrwriting primary key from database.
 
-        
+        function save()
+        {
+            $GLOBALS['DB']->exec("INSERT INTO stylists (stylist_name,specialty) VALUES ('{$this->stylist_name}','{$this->specialty}');");
+            $this->id = $GLOBALS['DB']->lastInsertID();
+        }
+
+        static function getAll()
+        {
+            $returned_query = $GLOBALS['DB']->query("SELECT * FROM stylists;");
+            $stylists = array();
+            foreach ($returned_query as $stylist)
+            {
+                $new_stylist = new Stylist($stylist['stylist_name'],$stylist['specialty'],$stylist['id']);
+                array_push($stylists,$new_stylist);
+            }
+            return $stylists;
+        }
+
+        static function deleteAll()
+        {
+            $GLOBALS['DB']->query("DELETE FROM stylists;");
+        }
 
     }
 
