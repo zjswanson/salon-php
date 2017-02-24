@@ -11,10 +11,10 @@ $password = 'root';
 $DB = new PDO($server, $username, $password);
 class CuisineTest extends PHPUnit_Framework_TestCase
 {
-    // protected function tearDown()
-    // {
-    //     Stylist::deleteAll();
-    // }
+    protected function tearDown()
+    {
+        Stylist::deleteAll();
+    }
     function test_getters()
     {
         // Arrange
@@ -44,6 +44,36 @@ class CuisineTest extends PHPUnit_Framework_TestCase
         $expected_result = array($stylist_name2,$specialty2);
         // Assert
         $this->assertEquals($result, $expected_result);
+    }
+
+    function test_Save()
+    {
+        // Arrange
+        $stylist_name = 'Eduardo';
+        $specialty = "pompadour";
+        $test_stylist = new Stylist ($stylist_name,$specialty);
+        $test_stylist->save();
+        // Act
+        $result = Stylist::getAll();
+        // Assert
+        $this->assertEquals($result, $test_stylist);
+    }
+
+    function test_getAll()
+    {
+        // Arrange
+        $stylist_name = 'Eduardo';
+        $specialty = "pompadour";
+        $test_stylist = new Stylist ($stylist_name,$specialty);
+        $test_stylist->save();
+        $stylist_name2 = 'Phillipe';
+        $specialty2 = "Wavy Mess";
+        $test_stylist2 = new Stylist ($stylist_name2,$specialty2);
+        $test_stylist2->save();
+        // Act
+        $result = Stylist::getAll();
+        // Assert
+        $this->assertEquals($result, [$test_stylist,$test_stylist2]);
     }
 
 }
