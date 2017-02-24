@@ -118,6 +118,7 @@ class StylistTest extends PHPUnit_Framework_TestCase
         $specialty = "pompadour";
         $test_stylist = new Stylist ($stylist_name,$specialty);
         $test_stylist->save();
+        $id = $test_stylist->getId();
         $stylist_name2 = 'Phillipe';
         $specialty2 = "Wavy Mess";
         $test_stylist->update("stylist_name",$stylist_name2);

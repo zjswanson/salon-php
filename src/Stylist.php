@@ -77,6 +77,12 @@
             return $found_stylist;
         }
 
+        function update($property,$value)
+        {
+            $GLOBALS['DB']->exec("UPDATE stylists SET {$property}='{$value}' where id = {$this->getId()};");
+            $this->$property = $value;
+        }
+
 
     }
 
