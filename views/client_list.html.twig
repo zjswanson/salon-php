@@ -42,9 +42,9 @@
                 </div>
                 <div class="panel-body">
                     <h4>Next Appointment: </h4>
-                    <h4>{{client.getNextAppointment | date("D, M y g:h")}}</h4>
+                    <h4>{{client.getNextAppointment | date("D, M y g:i A")}}</h4>
                     <form method="get">
-                        <button class="btn btn-warning" type="submit" name="edit" formaction="/edit_client/{{client.getId}}">Edit Client</button>
+                        <button class="btn btn-warning" type="submit" name="edit" formaction="/client_edit/{{client.getId}}">Edit Client</button>
                     </form>
                 </div>
             </div>
