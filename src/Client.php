@@ -7,10 +7,11 @@
         private $stylist_id;
         private $id;
 
-        function __construct($client_name,$next_appointment,$id=null)
+        function __construct($client_name,$next_appointment,$stylist_id=null,$id=null)
         {
             $this->client_name = $client_name;
             $this->next_appointment = $next_appointment;
+            $this->stylist_id = $stylist_id;
             $this->id = $id;
         }
 
