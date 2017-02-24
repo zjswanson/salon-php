@@ -19,6 +19,16 @@
                 <button type="submit" name="button">Create New Stylist</button>
             </form>
         </div>
+        <div class="panel-heading">
+            <h3>Delete All Stylists</h3>
+        </div>
+        <div class="panel-body">
+            <form action="/delete_all" method="post">
+                <input type="hidden" name="_method" value="delete">
+                <button class="btn btn-danger" type="submit" name="delete">Delete All Stylists</button>
+                <p> Warning!  This action cannot be undone! </p>
+            </form>
+        </div>
     </div>
 {% endblock %}
 
@@ -42,6 +52,12 @@
             </div>
         </div>
     {% endfor %}
+{% else %}
+    <div class="panel panel-info ">
+        <div class="panel-heading">
+            <h2>Use the controls at the left to add stylists</h2>
+        </div>
+    </div>
 {% endif %}
 </div>
 {% endblock %}

@@ -1,33 +1,6 @@
 {% extends "home_template.html.twig" %}
 
-{% block list %}
-<!-- edit form -->
-    <h2>Stylist: {{stylist.getStylistName}}</h2>
-    <div class="panel panel-info">
-        <div class="panel-heading">
-            <h3>Edit Stylist:</h3>
-        </div>
-        <div class="panel-body">
-            <form action="/stylist_edit/{{stylist.getId}}" method="post">
-                <input name="_method" type="hidden"  value="patch">
-                <div class="form-group">
-                    <h2>Name: {{stylist.getStylistName}}</h2>
-                    <label for="stylist_name">Change Stylist Name</label>
-                    <input type="text" name="stylist_name">
-                </div>
-                <div class="form-group">
-                    <h2>Specialty: {{stylist.getSpecialty}}</h2>
-                    <label for="specialty">Change Stylist Specialty</label>
-                    <input type="text" name="specialty">
-                </div>
-                <button class="btn btn-info" type="submit" name="button">Update Stylist</button>
-            </form>
-        </div>
-    </div>
-{% endblock %}
-
-{% block controls %}
-    <!-- delete button, nav buttons -->
+    {% block controls %}
     <h2>Manager options:</h2>
     <div class="panel panel-info">
         <div class="panel-heading">
@@ -43,11 +16,37 @@
             <h3>Delete Stylist</h3>
         </div>
         <div class="panel-body">
-            <form action="/delete/{{stylist.getId}}" method="post">
+            <form action="/delete_stylist/{{stylist.getId}}" method="post">
                 <input type="hidden" name="_method" value="delete">
                 <button class="btn btn-danger" type="submit" name="delete">Delete Stylist</button>
                 <p> Warning!  This action cannot be undone! </p>
             </form>
         </div>
     </div>
-{% endblock %}
+    {% endblock %}
+
+    {% block list %}
+    <!-- edit form -->
+        <h2>Stylist: {{stylist.getStylistName}}</h2>
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3>Edit Stylist:</h3>
+            </div>
+            <div class="panel-body">
+                <form action="/stylist_edit/{{stylist.getId}}" method="post">
+                    <input name="_method" type="hidden"  value="patch">
+                    <div class="form-group">
+                        <h2>Name: {{stylist.getStylistName}}</h2>
+                        <label for="stylist_name">Change Stylist Name</label>
+                        <input type="text" name="stylist_name">
+                    </div>
+                    <div class="form-group">
+                        <h2>Specialty: {{stylist.getSpecialty}}</h2>
+                        <label for="specialty">Change Stylist Specialty</label>
+                        <input type="text" name="specialty">
+                    </div>
+                    <button class="btn btn-info" type="submit" name="button">Update Stylist</button>
+                </form>
+            </div>
+        </div>
+    {% endblock %}

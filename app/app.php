@@ -32,7 +32,11 @@
         return $app['twig']->render('stylist_list.html.twig', array('stylists' => Stylist::getAll()));
     });
 
-    $app->delete("/delete/{stylist_id}", function($stylist_id) use ($app) {
+    $app->delete("/delete_all", function() use ($app) {
+        Stylist::deleteAll();
+        return $app['twig']->render('stylist_list.html.twig', array('stylists' => Stylist::getAll()));
+    });
+    $app->delete("/delete_stylist/{stylist_id}", function($stylist_id) use ($app) {
         $new_stylist = Stylist::find($stylist_id);
         $new_stylist->delete();
         return $app['twig']->render('stylist_list.html.twig', array('stylists' => Stylist::getAll()));
