@@ -71,6 +71,27 @@
     });
 
 
+    // This route is just here to auto populate all stylists with a few clients for UI testing.
+    $app->get("/populate", function() use ($app) {
+        $stylists = Stylist::getAll();
+        foreach ($stylists as $stylist)
+        {
+            $stylist_id = $stylist->getId();
+            $client_name = 'Mr. Dude';
+            $next_appointment = "2017-02-24 15:00:00";
+            $test_client = new Client ($client_name,$next_appointment,$stylist_id);
+            $test_client->save();
+            $client_name2 = 'El Duderino';
+            $next_appointment2 = "2017-02-24 17:00:00";
+            $test_client2 = new Client ($client_name2,$next_appointment2,$stylist_id);
+            $test_client2->save();
+            $client_name3 = 'Monsieur Fancee';
+            $next_appointment3 = "2017-02-24 19:00:00";
+            $test_client3 = new Client ($client_name3,$next_appointment3,$stylist_id);
+            $test_client3->save();
+        }
+        return $app['twig']->render('stylist_list.html.twig', array('stylists' => Stylist::getAll()));
+    });
 
     return $app;
 ?>
