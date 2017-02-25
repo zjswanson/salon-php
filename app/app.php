@@ -114,6 +114,10 @@
         $specialty4 = "Male Models";
         $test_stylist4 = new Stylist ($stylist_name4,$specialty4);
         $test_stylist4->save();
+        $stylist_name5 = 'Nathaniel Merriweather';
+        $specialty5 = "Lovage";
+        $test_stylist5 = new Stylist ($stylist_name5,$specialty5);
+        $test_stylist5->save();
         return $app['twig']->render('stylist_list.html.twig', array('stylists' => Stylist::getAll()));
     });
 

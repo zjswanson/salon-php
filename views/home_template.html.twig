@@ -1,4 +1,4 @@
-<!-- Base template to be used for displaying a list of entries with a form input or set of controls at the left.  Extension templates should create each list entry as a width 4 column div so they cascade properly in the display row. -->
+<!-- Base template to be used for displaying a list of entries with a form input or set of controls at the left.  Extension templates using lists should create each list entry as a width 4 column div so they cascade properly in the display row. -->
 
 <!DOCTYPE html>
 <html>
@@ -10,7 +10,10 @@
     </head>
     <body>
         <div class="container">
-            <!-- Add Navbar -->
+            <div class="well">
+                <h1>Fancy Lad's Salon</h1>
+                <h4>Manager Portal</h4>
+            </div>
             <div class="row">
                 <div class="col-md-4">
                     {% block controls %}

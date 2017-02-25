@@ -10,12 +10,85 @@ _This is a simple application designed to demonstrate interaction with a mysql d
 
 ## Application Behaviors
 ```
-Behavior: User inputs a search string and a phrase string to be searched.  App outputs the number of occurrences of the search string in the phrase string.
-Sample Input: search: "cat", "The internet loves the cat.  Cat videos, cat merchandise, cat apparel and catalogs of cat behavior."
-Sample Output: 5 matches.
-Testing method: The phrase was chosen because the search string occurs many times, and because the search string is contained in another word in the phrase.  Verifying functionality will require testing that the method 1)returns a match for a single occurrence of the search string, 2)returns the correct number of matches for multiple occurrences, and 3) does not return a match for partial word matches.
+Behavior: On Stylist List, User inputs new stylist info and clicks create new stylist, app displays the stylist in the stylist list:
+Sample Input: "Eduardo, Pompadour"
+Sample Output: Stylist entry is displayed with a name of Eduardo and specialty of Pompadour
 ```
-
+```
+Behavior: On Stylist List, User clicks Delete all Stylists, app deletes stylists and displays empty list
+Sample Input: clicks delete all stylists
+Sample Output: Stylist list is empty
+```
+```
+Behavior: On Stylist List, User clicks edit stylist list under a stylist, app navigates to stylist's client list
+Sample Input: clicks edit stylist list
+Sample Output: app navigates to edit stylist page for that stylist
+```
+```
+Behavior: On Edit Stylist, User clicks back to stylist List, app navigates to stylist list
+Sample Input: User clicks back to stylist List
+Sample Output: app navigates back to stylist List
+```
+```
+Behavior: On Edit Stylist, User inputs new stylist name and/or new specialty, clicks update stylist, app changes and display's stylist's entry
+Sample Input: User inputs "Mrs dude, Really big hair"
+Sample Output: app updates stylist name to Mrs. Dude, specialty to Really big hair.
+```
+```
+Behavior: On Edit Stylist, User clicks To Client List, app navigates to client list
+Sample Input: User clicks back to client List
+Sample Output: app navigates back to client List
+```
+```
+Behavior: On Edit Stylist, User clicks Delete Stylist, app deletes stylist and navigates to stylist list.
+Sample Input: User clicks delete stylist
+Sample Output: app navigates stylist list, displays list (without deleted stylist)
+```
+```
+Behavior: On Stylist List, User clicks view client list under a stylist, app navigates to stylist's client list
+Sample Input: clicks view client list
+Sample Output: app navigates to client list page for that stylist
+```
+```
+Behavior: On Client List, User inputs new client info and clicks create new client, app displays the client in the client list:
+Sample Input: "Mr. Dude, Fri, Feb 17 3:00 PM"
+Sample Output: Client entry is displayed with a name of Mr. Dude and appointment of Fri, Feb 17 3:00 PM
+```
+```
+Behavior: On Client List, User clicks back to stylist List, app navigates to stylist list
+Sample Input: User clicks back to stylist List
+Sample Output: app navigates back to stylist List
+```
+```
+Behavior: On Client List, User clicks Edit Client, app navigates to Edit Client page
+Sample Input: User clicks back to stylist List
+Sample Output: app navigates back to stylist List
+```
+```
+Behavior: On Client, User clicks Edit Client, app navigates to Edit Client page
+Sample Input: User clicks back to stylist List
+Sample Output: app navigates back to stylist List
+```
+```
+Behavior: On Edit Client, User clicks To Client List, app navigates to Stylist's client list
+Sample Input: User clicks back to client List
+Sample Output: app navigates to client's Stylist's Client List
+```
+```
+Behavior: On Edit Client, User clicks go to stylist List, app navigates to stylist list
+Sample Input: User clicks back to stylist List
+Sample Output: app navigates back to stylist List
+```
+```
+Behavior: On Edit Client, User inputs new client name and/or new appointment, clicks update client, app changes and display's client's entry
+Sample Input: User inputs "Mrs dude, Fri, Feb 17 3:02 PM"
+Sample Output: app updates client name to Mrs. Dude, appointment to Fri, Feb 17 3:02 PM".
+```
+```
+Behavior: On Edit Client, User clicks Delete Client, app deletes client and navigates to client list.
+Sample Input: User clicks delete client
+Sample Output: app navigates client list, displays list (without deleted client)
+```
 
 
 
