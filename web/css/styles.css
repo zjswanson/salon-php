@@ -1,3 +1,8 @@
 .panel {
     min-height: 300px;
 }
+
+.well {
+    background-color: rgb(217,237,247);
+    color: rgb(49,112,143);
+}

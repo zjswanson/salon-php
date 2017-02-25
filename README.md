@@ -65,11 +65,6 @@ Sample Input: User clicks back to stylist List
 Sample Output: app navigates back to stylist List
 ```
 ```
-Behavior: On Client, User clicks Edit Client, app navigates to Edit Client page
-Sample Input: User clicks back to stylist List
-Sample Output: app navigates back to stylist List
-```
-```
 Behavior: On Edit Client, User clicks To Client List, app navigates to Stylist's client list
 Sample Input: User clicks back to client List
 Sample Output: app navigates to client's Stylist's Client List
@@ -89,8 +84,6 @@ Behavior: On Edit Client, User clicks Delete Client, app deletes client and navi
 Sample Input: User clicks delete client
 Sample Output: app navigates client list, displays list (without deleted client)
 ```
-
-
 
 
 ## Setup/Installation Requirements
